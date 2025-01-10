@@ -808,7 +808,7 @@ def iaf_encode_delay(u_list, T_block, t_begin, dt,
     while k_start < Nt:
 
         # Convert the bounds of the interval to encode to indices:
-        print '%i: window: [%f, %f]' % (count, k_start*dt, k_end*dt)
+        print('%i: window: [%f, %f]' % (count, k_start*dt, k_end*dt))
         count += 1
 
         # Encode the block:
@@ -968,7 +968,7 @@ def iaf_decode_delay(s_list, T_block, T_overlap, dt,
 
         # Select block of spike times to decode:
         s_block_list = _get_spike_block(s_list, k_start*dt, k_end*dt)
-        print '%i: window: [%f, %f]' % (count, k_start*dt, k_end*dt)
+        print('%i: window: [%f, %f]' % (count, k_start*dt, k_end*dt))
         count += 1
 
         # Decode the block:

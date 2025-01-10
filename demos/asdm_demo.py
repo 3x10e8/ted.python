@@ -11,6 +11,7 @@ asynchronous sigma-delta modulators.
 # http://www.opensource.org/licenses/bsd-license
 
 import sys
+sys.path.append(r'/Users/3x10e8/Documents/GitHub/bci25-eeg2spike.nosync/ted.python/')
 import numpy as np
 
 # Set matplotlib backend so that plots can be generated without a
@@ -42,7 +43,7 @@ if noise_power == None:
     fig_title = 'ASDM Input Signal with No Noise'
 else:
     fig_title = 'ASDM Input Signal with %d dB of Noise' % noise_power
-print fig_title
+print(fig_title)
 u = func_timer(bl.gen_band_limited)(dur, dt, f, noise_power)
 pl.plot_signal(t, u, fig_title,
                output_name + str(output_count) + output_ext)
@@ -60,28 +61,28 @@ except ValueError('reconstruction condition not satisfied'):
 
 output_count += 1
 fig_title = 'Signal Encoded Using ASDM Encoder'
-print fig_title
+print(fig_title)
 s = func_timer(asdm.asdm_encode)(u, dt, b, d, k)
 pl.plot_encoded(t, u, s, fig_title,
                 output_name + str(output_count) + output_ext)
 
 output_count += 1
 fig_title = 'Signal Decoded Using ASDM Decoder'
-print fig_title
+print(fig_title)
 u_rec = func_timer(asdm.asdm_decode)(s, dur, dt, bw, b, d, k)
 pl.plot_compare(t, u, u_rec, fig_title,
                 output_name + str(output_count) + output_ext)
 
 output_count += 1
 fig_title = 'Signal Decoded Using Threshold-Insensitive ASDM Decoder'
-print fig_title
+print(fig_title)
 u_rec_ins = func_timer(asdm.asdm_decode_ins)(s, dur, dt, bw, b)
 pl.plot_compare(t, u, u_rec_ins, fig_title,
                 output_name + str(output_count) + output_ext)
 
 output_count += 1
 fig_title = 'Decoded Using Fast ASDM Decoder'
-print fig_title
+print(fig_title)
 u_rec = func_timer(asdm.asdm_decode_fast)(s, dur, dt, bw, M, b, d, k)
 pl.plot_compare(t, u, u_rec, fig_title,
                 output_name + str(output_count) + output_ext)

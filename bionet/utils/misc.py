@@ -57,7 +57,7 @@ def func_timer(f):
         start = time.time()
         res = f(*args, **kwargs)
         stop = time.time()
-        print 'execution time = %.5f s' % (stop-start)
+        print('execution time = %.5f s' % (stop-start))
         return res
     return wrapper
 
